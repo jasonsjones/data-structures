@@ -1,7 +1,15 @@
 {
-  "name": "root",
-  "private": true,
-  "devDependencies": {
-    "lerna": "^3.16.4"
-  }
+    "name": "data-structures",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "bootstrap": "lerna bootstrap",
+        "postinstall": "yarn bootstrap",
+        "test": "lerna run test --stream"
+    },
+    "devDependencies": {
+        "lerna": "^3.16.4"
+    }
 }
