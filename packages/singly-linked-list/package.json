@@ -15,7 +15,8 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/jasonsjones/singly-linked-list.git"
+        "url": "https://github.com/jasonsjones/data-structures.git",
+        "directory": "packages/singly-linked-list"
     },
     "keywords": [
         "singly linked-list",
@@ -26,9 +27,9 @@
     "author": "Jason Jones",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/jasonsjones/singly-linked-list/issues"
+        "url": "https://github.com/jasonsjones/data-structures/issues"
     },
-    "homepage": "https://github.com/jasonsjones/singly-linked-list",
+    "homepage": "https://github.com/jasonsjones/data-structures",
     "devDependencies": {
         "@types/jest": "^24.0.18",
         "@types/lodash.isequal": "^4.5.5",
