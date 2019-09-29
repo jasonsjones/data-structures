@@ -7,6 +7,7 @@
     "scripts": {
         "bootstrap": "lerna bootstrap",
         "postinstall": "yarn bootstrap",
+        "lint": "lerna run lint --stream",
         "test": "lerna run test --stream"
     },
     "devDependencies": {
