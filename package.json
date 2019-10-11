@@ -6,6 +6,8 @@
     ],
     "scripts": {
         "bootstrap": "lerna bootstrap",
+        "clean": "lerna clean && yarn dist-clean",
+        "dist-clean": "lerna run dist-clean --stream",
         "postinstall": "yarn bootstrap",
         "lint": "lerna run lint --stream",
         "test": "lerna run test --stream"

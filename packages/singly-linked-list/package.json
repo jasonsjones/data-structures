@@ -6,7 +6,7 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc",
-        "clean": "rm -rf dist",
+        "dist-clean": "rm -rf dist",
         "pretest": "yarn lint",
         "test": "jest --colors src/__tests__/*.spec.ts",
         "lint": "eslint src/index.ts src/lib/*.ts",
