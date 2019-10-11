@@ -13,6 +13,6 @@
         "test": "lerna run test --stream"
     },
     "devDependencies": {
-        "lerna": "^3.16.4"
+        "lerna": "^3.17.0"
     }
 }
