@@ -5,7 +5,8 @@
  * @license MIT
  */
 
-import { LinkedList, ListNode } from '../types';
+import LinkedList from '../index';
+import ListNode from './list-node';
 
 /**
  * Iterator class
