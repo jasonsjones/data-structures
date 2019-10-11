@@ -1,10 +1,14 @@
-[![version][npm-image]][npm-url] [![Build Status][circleci-image]][circleci-url] [![dependency status][dm-image]][dm-url] [![devDependency status][devdep-image]][devdep-url] [![npm](https://img.shields.io/npm/l/queue-fifo.svg?style=flat-square)]()
+[![version][npm-image]][npm-url]
+[![Build Status][circleci-image]][circleci-url]
+[![dependency status][dm-image]][dm-url]
+[![devDependency status][devdep-image]][devdep-url]
+[![npm](https://img.shields.io/npm/l/queue-fifo.svg?style=flat-square)]()
 
 # Singly Linked List
 
-## Description
+> A typescript implementation of a [singly linked list](http://en.wikipedia.org/wiki/Linked_list) data structure.
 
-This is a javascript implementation of a [singly linked list](http://en.wikipedia.org/wiki/Linked_list) data structure.
+## Description
 
 In simple terms, a singly linked list is a data structure that consists of one or more 'nodes'. Each node has a data field (which can contain any data--a primitive value or complex object) and a pointer to the next 'node'. This differs from a 'doubly linked list' in that it does NOT contain a reference, or link, to the previous node. The implication of this means one can only traverse the list in one direction, starting from the head node. The idea of having a link to the next node is where this data structure gets its descriptive name.
 
@@ -19,10 +23,6 @@ _For specific examples and documentation, see the below sections_
 The main purpose of this project is revisit the basics, and focus on the development process.
 
 _I wholehearedly acknowledge that the basic data structure space is populated with well-written code and efficient implementations, and one could easily grab one of those libraries and integrate it in their project. However, the main difference between those libraries/implementations and this one is that this is the best implementation I have ever written. My hope is that someone else will find this useful, but understand, this code is not the goal; this will simply be a useful bi-product of the journey. The underlying motivation is to understand and, more importantly, learn from the process to get to the desired end-state&mdash;for me it is all about the joy of the journey._
-
-#### Environment:
-
-Although this implementation is designed to be used with [Node.js](http://www.nodejs.org), it could be used in other contexts with minor modifications. This implementation does not have any external dependencies that would preclude it from being used in the browser--just include it with a `<script>` tag and it should be good to go. _Disclaimer: I have not tested this implementation in any other context/environment; only tested with node.js_
 
 ---
 

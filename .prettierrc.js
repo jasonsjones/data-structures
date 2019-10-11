@@ -8,8 +8,7 @@ module.exports = {
             files: '*.md',
             options: {
                 parser: 'markdown',
-                printWidth: 120,
-                'prose-wrap': 'preserve'
+                printWidth: 120
             }
         }
     ]

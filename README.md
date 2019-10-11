@@ -1,3 +1,5 @@
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+
 # Data Structures
 
 > A collection of fundamental data structures implemented in javascript/typescript
