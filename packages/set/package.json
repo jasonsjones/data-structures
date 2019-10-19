@@ -1,0 +1,45 @@
+{
+    "name": "set-ds",
+    "version": "0.1.1",
+    "description": "JavaScript implementation of a set data structure",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "dist-clean": "rm -rf dist",
+        "pretest": "yarn lint",
+        "test": "jest --colors src/__tests__/*.spec.ts",
+        "lint": "eslint src/index.ts",
+        "prepublishOnly": "yarn lint && yarn test",
+        "prepare": "yarn build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jasonsjones/data-structures.git",
+        "directory": "packages/set"
+    },
+    "keywords": [
+        "set",
+        "abstract data type",
+        "data structure"
+    ],
+    "author": "Jason Jones",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jasonsjones/data-structures/issues"
+    },
+    "homepage": "https://github.com/jasonsjones/data-structures",
+    "devDependencies": {
+        "@types/jest": "^24.0.18",
+        "@types/node": "^12.7.12",
+        "@typescript-eslint/eslint-plugin": "^2.3.3",
+        "@typescript-eslint/parser": "^2.3.3",
+        "eslint": "^6.5.1",
+        "eslint-config-prettier": "^6.4.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "jest": "^24.9.0",
+        "prettier": "^1.18.2",
+        "ts-jest": "^24.1.0",
+        "typescript": "^3.6.4"
+    }
+}
