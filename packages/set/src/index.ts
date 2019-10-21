@@ -60,6 +60,31 @@ class Set {
         return this._items;
     }
 
+    /**
+     * Returns the size, or number of items in the set
+     *
+     * @returns {number} the number of items in the set
+     */
+    size(): number {
+        return this._items.length;
+    }
+
+    /**
+     * Clears all the items from the set
+     */
+    clear(): void {
+        this._items = [];
+    }
+
+    /**
+     * Determines if the set is empty
+     *
+     * @returns {boolean} true if the set is empty, false otherwise
+     */
+    isEmpty(): boolean {
+        return this.size() === 0;
+    }
+
     private flattenArgs(args: any): void {
         args.forEach(item => {
             if (Array.isArray(item)) {
