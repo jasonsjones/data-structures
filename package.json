@@ -10,7 +10,9 @@
         "dist-clean": "lerna run dist-clean --stream",
         "postinstall": "yarn bootstrap",
         "lint": "lerna run lint --stream",
-        "test": "lerna run test --stream"
+        "test": "lerna run test --stream",
+        "test:singly-linked-list": "lerna run test --stream --scope singly-linked-list",
+        "test:set": "lerna run test --stream --scope set-ds"
     },
     "devDependencies": {
         "lerna": "^3.17.0"
