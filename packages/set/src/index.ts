@@ -41,6 +41,23 @@ class Set {
     }
 
     /**
+     * Removes an item from the set.
+     *
+     * @param {object|string|number} value the data of the item to remove
+     *        from the set
+     * @returns {object|string|number} the item that was removed from the
+     *          set.  If the item is not in the set, returns null
+     */
+    remove(value: any): any {
+        const idx = this._items.indexOf(value);
+        if (idx === -1) {
+            return null;
+        } else {
+            return this._items.splice(idx, 1)[0];
+        }
+    }
+
+    /**
      * Determines of the set contains, or has, the value
      *
      * @param {object|string|number} value the value of the item to find
@@ -86,7 +103,7 @@ class Set {
     }
 
     private flattenArgs(args: any): void {
-        args.forEach(item => {
+        args.forEach((item: any) => {
             if (Array.isArray(item)) {
                 this.flattenArgs(item);
             } else {

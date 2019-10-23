@@ -80,4 +80,37 @@ describe('Set', () => {
         expect(set.size()).toEqual(0);
         expect(set.isEmpty()).toBeTruthy();
     });
+
+    it('should remove an item from the set', () => {
+        const set = new Set();
+        set.add('test item 1');
+        set.add('test item 2');
+        set.add('test item 3');
+        const removedItem = set.remove('test item 2');
+        expect(removedItem).toEqual('test item 2');
+        expect(set.size()).toEqual(2);
+    });
+
+    it('should return null if removed item is not in the set', function() {
+        const set = new Set();
+        set.add('test item 1');
+        set.add('test item 2');
+        set.add('test item 3');
+        const removedItem = set.remove('not found...');
+        expect(removedItem).toBeNull();
+        expect(set.size()).toEqual(3);
+    });
+
+    it('should return an array of all items in the set', function() {
+        const set = new Set();
+        set.add('test item 1');
+        set.add('test item 2');
+        set.add({ item: 'test item 3' });
+
+        const values = set.values();
+        expect(Array.isArray(values)).toBe(true);
+        expect(values).toHaveLength(3);
+        expect(values).toContain('test item 1');
+        expect(values).toContainEqual({ item: 'test item 3' });
+    });
 });
