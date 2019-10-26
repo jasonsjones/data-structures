@@ -4,18 +4,18 @@
  * @license MIT
  */
 
-class Set {
-    private _items: any[];
+class Set<T> {
+    private _items: T[];
 
     /**
      * Creates a new set instance and initializes the underlying data
      * structure
      *
      * @constructor
-     * @param {object|string|number} args variable number of arguments to
+     * @param {T} args variable number of arguments to
      *        initialize the set, can be an array or individual arguments
      */
-    constructor(...args: any) {
+    constructor(...args: T[]) {
         this._items = [];
 
         if (args) {
@@ -27,12 +27,12 @@ class Set {
      * Adds an item to the set.  If the set already contains the item,
      * it is not added.
      *
-     * @param {object|string|number} value the data of the item to add to
+     * @param {T} value the data of the item to add to
      *        the set
      * @returns {boolean} true if the item is added to the set; false
      *          otherwise
      */
-    add(value: any): boolean {
+    add(value: T): boolean {
         if (!this.has(value)) {
             this._items.push(value);
             return true;
@@ -43,12 +43,12 @@ class Set {
     /**
      * Removes an item from the set.
      *
-     * @param {object|string|number} value the data of the item to remove
+     * @param {T} value the data of the item to remove
      *        from the set
-     * @returns {object|string|number} the item that was removed from the
+     * @returns {T} the item that was removed from the
      *          set.  If the item is not in the set, returns null
      */
-    remove(value: any): any {
+    remove(value: T): T {
         const idx = this._items.indexOf(value);
         if (idx === -1) {
             return null;
@@ -60,20 +60,20 @@ class Set {
     /**
      * Determines of the set contains, or has, the value
      *
-     * @param {object|string|number} value the value of the item to find
+     * @param {T} value the value of the item to find
      *        in the set
      * @returns {boolean} true if the set has the value; false otherwise
      */
-    has(value: any): boolean {
+    has(value: T): boolean {
         return this._items.indexOf(value) > -1;
     }
 
     /**
      * Returns an array containing all the items in the set
      *
-     * @returns {object} array of all the items in the set
+     * @returns {T} array of all the items in the set
      */
-    values(): any[] {
+    values(): T[] {
         return this._items;
     }
 
@@ -101,17 +101,18 @@ class Set {
     isEmpty(): boolean {
         return this.size() === 0;
     }
+
     /**
      * Returns a Set that is the union of this set and the 'otherSet'.  The
      * returned set will contain all the elements from both sets, and by
      * definition, will not contain any duplicates.
      *
-     * @param {object} otherSet the set to union with this
-     * @returns {object} a set which is a union of this and the 'otherSet'
+     * @param {Set<T>} otherSet the set to union with this
+     * @returns {Set<T>} a set which is a union of this and the 'otherSet'
      *
      * @throws {TypeError} if 'otherSet' is not a Set
      */
-    union(otherSet: Set): Set {
+    union(otherSet: Set<T>): Set<T> {
         // if the 'otherSet' is not a Set, throw TypeError
         if (!(otherSet instanceof Set)) {
             throw new TypeError('invalid parameter type; a Set is required');
@@ -119,7 +120,7 @@ class Set {
 
         // create the set to return and initialize with the values from
         // this set
-        const unionSet = new Set(this.values());
+        const unionSet = new Set<T>(...this.values());
 
         // get array of values from the fn parameter
         const argValues = otherSet.values();
@@ -136,18 +137,18 @@ class Set {
      * The returned set will have only those items that both sets have in
      * common.
      *
-     * @param {object} otherSet the set to intersect with this
-     * @returns {object} a set which is an intersection of this and the 'otherSet'
+     * @param {Set<T>} otherSet the set to intersect with this
+     * @returns {Set<T>} a set which is an intersection of this and the 'otherSet'
      *
      * @throws {TypeError} if 'otherSet' is not a Set
      */
-    intersection(otherSet: Set): Set {
+    intersection(otherSet: Set<T>): Set<T> {
         // if the 'otherSet' is not a Set, throw TypeError
         if (!(otherSet instanceof Set)) {
             throw new TypeError('invalid parameter type; a Set is required');
         }
 
-        const intersectionSet = new Set();
+        const intersectionSet = new Set<T>();
         const theseValues = this.values();
 
         theseValues.forEach(val => {
@@ -159,8 +160,8 @@ class Set {
         return intersectionSet;
     }
 
-    private flattenArgs(args: any): void {
-        args.forEach((item: any) => {
+    private flattenArgs(args: T[]): void {
+        args.forEach((item: T) => {
             if (Array.isArray(item)) {
                 this.flattenArgs(item);
             } else {
