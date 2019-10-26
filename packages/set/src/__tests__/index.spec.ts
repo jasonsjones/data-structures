@@ -113,4 +113,44 @@ describe('Set', () => {
         expect(values).toContain('test item 1');
         expect(values).toContainEqual({ item: 'test item 3' });
     });
+
+    it('returns a Set that is the union of two other sets', () => {
+        const setA = new Set([1, 2, 3, 4]);
+        const setB = new Set([4, 5, 6, 7]);
+        const setC = setA.union(setB);
+        expect(setC.size()).toEqual(7);
+        expect(Array.isArray(setC.values())).toBe(true);
+        expect(setC.values()).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    });
+
+    /*
+    it('throws an error if union is called with a non-set parameter', () => {
+        const setA = new Set([1, 2, 3, 4]);
+        expect(() => {
+            setA.union('this should throw error');
+        }).toThrowError();
+
+        // (function() {
+        //     setA.union('this should throw error');
+        // }.should.throw(/invalid parameter/));
+    });
+    */
+
+    it('returns the intersection of two sets', () => {
+        const setA = new Set([1, 2, 3, 4]);
+        const setB = new Set([4, 2, 6, 3]);
+        const setC = setA.intersection(setB);
+        expect(setC.size()).toEqual(3);
+        expect(Array.isArray(setC.values())).toBe(true);
+        expect(setC.values()).toEqual([2, 3, 4]);
+    });
+
+    /*
+    it('should throw an error if intersection is called with a non-set parameter', function() {
+        var setA = new MySet([1, 2, 3, 4]);
+        (function() {
+            setA.intersection('this should throw error');
+        }.should.throw(/invalid parameter/));
+    });
+    */
 });

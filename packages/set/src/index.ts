@@ -101,6 +101,63 @@ class Set {
     isEmpty(): boolean {
         return this.size() === 0;
     }
+    /**
+     * Returns a Set that is the union of this set and the 'otherSet'.  The
+     * returned set will contain all the elements from both sets, and by
+     * definition, will not contain any duplicates.
+     *
+     * @param {object} otherSet the set to union with this
+     * @returns {object} a set which is a union of this and the 'otherSet'
+     *
+     * @throws {TypeError} if 'otherSet' is not a Set
+     */
+    union(otherSet: Set): Set {
+        // if the 'otherSet' is not a Set, throw TypeError
+        if (!(otherSet instanceof Set)) {
+            throw new TypeError('invalid parameter type; a Set is required');
+        }
+
+        // create the set to return and initialize with the values from
+        // this set
+        const unionSet = new Set(this.values());
+
+        // get array of values from the fn parameter
+        const argValues = otherSet.values();
+
+        argValues.forEach(val => {
+            unionSet.add(val);
+        });
+
+        return unionSet;
+    }
+
+    /**
+     * Returns a Set that ts the intersection of this set and the 'otherSet',
+     * The returned set will have only those items that both sets have in
+     * common.
+     *
+     * @param {object} otherSet the set to intersect with this
+     * @returns {object} a set which is an intersection of this and the 'otherSet'
+     *
+     * @throws {TypeError} if 'otherSet' is not a Set
+     */
+    intersection(otherSet: Set): Set {
+        // if the 'otherSet' is not a Set, throw TypeError
+        if (!(otherSet instanceof Set)) {
+            throw new TypeError('invalid parameter type; a Set is required');
+        }
+
+        const intersectionSet = new Set();
+        const theseValues = this.values();
+
+        theseValues.forEach(val => {
+            if (otherSet.has(val)) {
+                intersectionSet.add(val);
+            }
+        });
+
+        return intersectionSet;
+    }
 
     private flattenArgs(args: any): void {
         args.forEach((item: any) => {
