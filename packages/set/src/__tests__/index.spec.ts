@@ -135,9 +135,48 @@ describe('Set', () => {
     });
 
     it('throws an error if intersection is called with a non-set parameter', () => {
-        const setA = new Set([1, 2, 3, 4]);
+        const set = new Set(1, 2, 3, 4);
         expect(() => {
-            setA.intersection('this should throw error' as any);
+            set.intersection('this should throw error' as any);
+        }).toThrowError();
+    });
+
+    it('returns the difference of two sets', () => {
+        const setA = new Set(1, 2, 3, 4, 5);
+        const setB = new Set(3, 4, 5, 6, 7);
+        const setC = setA.difference(setB);
+        expect(setC.size()).toEqual(2);
+        expect(Array.isArray(setC.values())).toBe(true);
+        expect(setC.values()).toEqual([1, 2]);
+    });
+
+    it('throws an error if difference is called with a non-set parameter', () => {
+        const set = new Set(1, 2, 3, 4);
+        expect(() => {
+            set.intersection('this should throw error' as any);
+        }).toThrowError();
+    });
+
+    it('returns true if a set is a subset of another set', () => {
+        const setA = new Set(1, 2, 3, 4, 5);
+        const setB = new Set(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        expect(setA.subset(setB)).toEqual(true);
+    });
+
+    it('returns false if a set is NOT a subset of another set', () => {
+        const setA = new Set(1, 2, 3, 4, 5, 6, 7);
+        const setB = new Set(1, 2, 3, 4, 5);
+        expect(setA.subset(setB)).toEqual(false);
+
+        const setC = new Set(1, 2, 10, 4, 5);
+        const setD = new Set(1, 2, 3, 4, 5, 6, 7);
+        expect(setC.subset(setD)).toEqual(false);
+    });
+
+    it('throws an error if subset is called with a non-set parameter', () => {
+        const set = new Set([1, 2, 3, 4]);
+        expect(() => {
+            set.intersection('this should throw error' as any);
         }).toThrowError();
     });
 });

@@ -159,6 +159,58 @@ class Set<T> {
 
         return intersectionSet;
     }
+    /**
+     * Returns a Set that ts the different of this and the 'otherSet',  The
+     * returned set will have those items that are contained in this set, but
+     * NOT contained in the 'otherSet'.
+     *
+     * @param {Set<T>} otherSet the set to use to determine the difference
+     * @returns {Set<T>} a set which is an difference of this and the 'otherSet'
+     *
+     * @throws {TypeError} if 'otherSet' is not a Set
+     */
+    difference(otherSet: Set<T>): Set<T> {
+        // if the 'otherSet' is not a Set, throw TypeError
+        if (!(otherSet instanceof Set)) {
+            throw new TypeError('invalid parameter type; a Set is required');
+        }
+
+        const differenceSet = new Set<T>();
+        const theseValues = this.values();
+
+        theseValues.forEach(val => {
+            if (!otherSet.has(val)) {
+                differenceSet.add(val);
+            }
+        });
+
+        return differenceSet;
+    }
+    /**
+     * Returns whether or not this set is a subset of the 'otherSet'.  If all
+     * items of this set are contained in the otherSet, this function returns
+     * true; false otherwise.
+     *
+     * @param {object} otherSet the set to use to determine if this set is a subset
+     * @returns {boolean} true if this set is a subset of the 'otherSet', false
+     *          otherwise
+     *
+     * @throws {TypeError} if 'otherSet' is not a Set
+     */
+    subset(otherSet: Set<T>): boolean {
+        // if the 'otherSet' is not a Set, throw TypeError
+        if (!(otherSet instanceof Set)) {
+            throw new TypeError('invalid parameter type; a Set is required');
+        }
+
+        // if the size of this set is greater than the size of the otherSet,
+        // we know this cannot be a subset of the otherSet
+        if (this.size() > otherSet.size()) {
+            return false;
+        } else {
+            return this.values().every(val => otherSet.has(val));
+        }
+    }
 
     private flattenArgs(args: T[]): void {
         args.forEach((item: T) => {
