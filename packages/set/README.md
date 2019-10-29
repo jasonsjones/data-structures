@@ -1,4 +1,4 @@
-# [![npm version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![dependency status][dm-image]][dm-url] [![devDependency status][devdep-image]][devdep-url]
+[![npm version][npm-image]][npm-url]
 
 # Set Data Structure
 
@@ -143,9 +143,3 @@ MIT &copy; Jason Jones
 
 [npm-image]: https://badge.fury.io/js/set-ds.svg
 [npm-url]: http://npmjs.org/package/set-ds
-[travis-image]: https://travis-ci.org/jasonsjones/set-data-structure.svg
-[travis-url]: https://travis-ci.org/jasonsjones/set-data-structure
-[dm-image]: https://david-dm.org/jasonsjones/set-data-structure.svg
-[dm-url]: https://david-dm.org/jasonsjones/set-data-structure
-[devdep-image]: https://david-dm.org/jasonsjones/set-data-structure/dev-status.svg
-[devdep-url]: https://david-dm.org/jasonsjones/set-data-structure#info=devDependencies
