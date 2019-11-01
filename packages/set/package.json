@@ -1,7 +1,7 @@
 {
     "name": "set-ds",
-    "version": "0.1.1",
-    "description": "JavaScript implementation of a set data structure",
+    "version": "1.0.0",
+    "description": "Set data structure",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
