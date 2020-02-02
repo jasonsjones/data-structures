@@ -1,4 +1,4 @@
-name: 'Data Structure Actions'
+name: Data Structure Actions
 
 on: [push]
 
