@@ -11,6 +11,6 @@ jobs:
             - name: 'Install node'
               uses: actions/setup-node@v1
             - name: 'Install dependencies'
-              run: npm Install
+              run: npm install
             - name: 'Run tests'
               run: npm run test:set
