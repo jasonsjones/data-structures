@@ -1,0 +1,16 @@
+name: 'Data Structure Actions'
+
+on: [push]
+
+jobs:
+    set_test:
+        name: Set data-structure tests
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: 'Install node'
+              uses: actions/setup-node@v1
+            - name: 'Install dependencies'
+              run: npm Install
+            - name: 'Run tests'
+              run: npm run test:set
