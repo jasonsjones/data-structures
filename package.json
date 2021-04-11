@@ -15,6 +15,18 @@
         "test:set": "lerna run test --stream --scope set-ds"
     },
     "devDependencies": {
-        "lerna": "^3.17.0"
+        "@types/jest": "26.0.22",
+        "@types/lodash.isequal": "4.5.5",
+        "@types/node": "14.14.37",
+        "@typescript-eslint/eslint-plugin": "4.21.0",
+        "@typescript-eslint/parser": "4.21.0",
+        "eslint": "7.24.0",
+        "eslint-config-prettier": "8.1.0",
+        "eslint-plugin-prettier": "3.3.1",
+        "jest": "26.6.3",
+        "lerna": "4.0.0",
+        "prettier": "2.2.1",
+        "ts-jest": "26.5.4",
+        "typescript": "4.2.4"
     }
 }
