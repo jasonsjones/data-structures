@@ -15,18 +15,18 @@
         "test:set": "lerna run test --stream --scope set-ds"
     },
     "devDependencies": {
-        "@types/jest": "26.0.22",
+        "@types/jest": "27.4.0",
         "@types/lodash.isequal": "4.5.5",
-        "@types/node": "14.14.37",
-        "@typescript-eslint/eslint-plugin": "4.21.0",
-        "@typescript-eslint/parser": "4.21.0",
-        "eslint": "7.24.0",
-        "eslint-config-prettier": "8.1.0",
-        "eslint-plugin-prettier": "3.3.1",
-        "jest": "26.6.3",
+        "@types/node": "17.0.16",
+        "@typescript-eslint/eslint-plugin": "5.11.0",
+        "@typescript-eslint/parser": "5.11.0",
+        "eslint": "8.8.0",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-prettier": "4.0.0",
+        "jest": "27.5.1",
         "lerna": "4.0.0",
-        "prettier": "2.2.1",
-        "ts-jest": "26.5.4",
-        "typescript": "4.2.4"
+        "prettier": "2.5.1",
+        "ts-jest": "27.1.3",
+        "typescript": "4.5.5"
     }
 }
