@@ -1,16 +1,34 @@
 name: Data Structure Actions
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/**/*'
+
+  pull_request:
+    branches:
+      - main
+      - feature/*
+    paths:
+      - 'packages/**/*'
 
 jobs:
-    test:
-        name: Data structure tests
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v1
-            - name: 'Install node'
-              uses: actions/setup-node@v1
-            - name: 'Install dependencies'
-              run: npm install
-            - name: 'Run Set tests'
-              run: npm run test:set
+  test:
+    name: Data structure tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: 'Install node'
+        uses: actions/setup-node@v1
+
+      - name: 'Install dependencies'
+        run: npm install
+
+      - name: 'Run Set tests'
+        run: npm run test:set
+
+      - name: 'Run Singly Linked List tests'
+        run: npm run test:singly-linked-list
+
