@@ -5,12 +5,12 @@
     "main": "index.js",
     "scripts": {
         "lint": "eslint index.js lib/*.js test/*.js",
-        "pretest": "yarn lint",
         "test": "nyc mocha"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/jasonsjones/simple-hashtable.git"
+        "url": "https://github.com/jasonsjones/data-structures.git",
+        "directory": "packages/simple-hashtable"
     },
     "keywords": [
         "hash table",
@@ -20,9 +20,9 @@
     "author": "Jason Jones",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/jasonsjones/simple-hashtable/issues"
+        "url": "https://github.com/jasonsjones/data-structures/issues"
     },
-    "homepage": "https://github.com/jasonsjones/simple-hashtable",
+    "homepage": "https://github.com/jasonsjones/data-structures/packages/simple-hashtable",
     "devDependencies": {
         "chai": "4.3.6",
         "eslint": "8.8.0",

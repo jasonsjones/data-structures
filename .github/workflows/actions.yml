@@ -15,23 +15,36 @@ on:
       - 'packages/**/*'
 
 jobs:
-  test:
-    name: Data structure tests
+  runner-job:
+    name: Data structure builds and tests
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
 
-      - name: 'Install node'
+      - name: Install node
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
-      - name: 'Install dependencies'
-        run: npm install
+      - name: Install dependencies
+        run: yarn install
 
-      - name: 'Run Set tests'
-        run: npm run test:set
+      - name: Lint packages
+        run: yarn lint
 
-      - name: 'Run Singly Linked List tests'
-        run: npm run test:singly-linked-list
+      - name: Build Singly Linked List
+        run: yarn workspace singly-linked-list build
+
+      - name: Build Set
+        run: yarn workspace set-ds build
+
+      - name: Run Set tests
+        run: yarn run test:set
+
+      - name: Run Simple Hash Table tests
+        run: yarn run test:simple-hashtable
+
+      - name: Run Singly Linked List tests
+        run: yarn run test:singly-linked-list
 
