@@ -11,8 +11,9 @@
         "postinstall": "yarn bootstrap",
         "lint": "lerna run lint --stream",
         "test": "lerna run test --stream",
-        "test:singly-linked-list": "lerna run test --stream --scope singly-linked-list",
-        "test:set": "lerna run test --stream --scope set-ds"
+        "test:set": "lerna run test --stream --scope set-ds",
+        "test:simple-hashtable": "yarn workspace simple-hashtable test",
+        "test:singly-linked-list": "lerna run test --stream --scope singly-linked-list"
     },
     "devDependencies": {
         "@types/jest": "27.4.0",
