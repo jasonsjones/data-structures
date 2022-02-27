@@ -11,18 +11,18 @@
  * and a pointer the next node in the list.
  *
  */
-class ListNode {
-    data: any;
-    next: ListNode | null;
+class ListNode<T> {
+    data: T;
+    next: ListNode<T> | null;
 
     /**
      * Creates a list node object with a data property and pointer
      * to the next node
      *
      * @constructor
-     * @param {any} data The data to initialize the node
+     * @param {T} data The data to initialize the node
      */
-    constructor(data: any) {
+    constructor(data: T) {
         this.data = data;
         this.next = null;
     }
@@ -39,9 +39,9 @@ class ListNode {
     /**
      * Gets the list node's data
      *
-     * @returns {any} the data of the node
+     * @returns {T} the data of the node
      */
-    getData(): any {
+    getData(): T {
         return this.data;
     }
 

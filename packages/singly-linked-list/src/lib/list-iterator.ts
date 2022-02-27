@@ -24,9 +24,9 @@ import ListNode from './list-node';
  * of separation of concerns.
  *
  */
-class ListIterator {
+class ListIterator<T> {
     list: LinkedList;
-    currentNode: ListNode;
+    currentNode: ListNode<T>;
 
     /**
      * Creates an iterator instance to iterate over the linked list provided.
@@ -42,7 +42,7 @@ class ListIterator {
         this.currentNode = null;
     }
 
-    next(): ListNode {
+    next(): ListNode<T> {
         const current = this.currentNode;
         // a check to prevent error if randomly calling next() when
         // iterator is at the end of the list, meaining the currentNode
@@ -80,7 +80,7 @@ class ListIterator {
      *
      * @returns the first node in the list
      */
-    first(): ListNode {
+    first(): ListNode<T> {
         this.reset();
         return this.next();
     }
@@ -102,9 +102,9 @@ class ListIterator {
      * @param {function} callback the callback function to be called with
      *                   each node of the list as an arg
      */
-    each(callback: (node: ListNode) => void): void {
+    each(callback: (node: ListNode<T>) => void): void {
         this.reset();
-        let listNode: ListNode;
+        let listNode: ListNode<T>;
         while (this.hasNext()) {
             listNode = this.next();
             callback(listNode);
