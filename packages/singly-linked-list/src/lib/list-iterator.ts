@@ -25,7 +25,7 @@ import ListNode from './list-node';
  *
  */
 class ListIterator<T> {
-    list: LinkedList;
+    list: LinkedList<T>;
     currentNode: ListNode<T>;
 
     /**
@@ -34,7 +34,7 @@ class ListIterator<T> {
      * @constructor
      * @param {object} theList the linked list to iterate over
      */
-    constructor(theList: LinkedList) {
+    constructor(theList: LinkedList<T>) {
         this.list = theList;
 
         // a pointer the current node in the list that will be returned.
@@ -90,7 +90,7 @@ class ListIterator<T> {
      *
      * @param {object} theList the linked list to iterate over
      */
-    setList(theList: LinkedList): void {
+    setList(theList: LinkedList<T>): void {
         this.list = theList;
         this.reset();
     }

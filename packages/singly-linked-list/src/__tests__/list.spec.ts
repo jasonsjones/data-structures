@@ -1,9 +1,18 @@
 import LinkedList from '../index';
 
+type TestObject = {
+    id?: number,
+    name?: string,
+    key?: string,
+    value?: string
+};
+
+type TestData = TestObject | string;
+
 // Utility function to populate the list with dummy data.
 // The number of nodes added will be specified by the 'numNodes'
 // parameter.
-const populateList = (aList: LinkedList, numNodes: number): void => {
+const populateList = (aList: LinkedList<TestData>, numNodes: number): void => {
     for (let i = 0; i < numNodes; i++) {
         aList.insert('test item ' + (i + 1));
     }
@@ -12,14 +21,14 @@ const populateList = (aList: LinkedList, numNodes: number): void => {
 // Utility function to populate the list with dummy data.
 // The number of nodes added will be specified by the 'numNodes'
 // parameter.
-const populateArray = (arr: any[], numItems: number): void => {
+const populateArray = (arr: string[], numItems: number): void => {
     for (let i = 0; i < numItems; i++) {
         arr.push('test item ' + (i + 1));
     }
 };
 
 describe('Linked List', () => {
-    let list: LinkedList;
+    let list: LinkedList<TestData>;
 
     beforeEach(() => {
         list = new LinkedList();
@@ -318,7 +327,7 @@ describe('Linked List', () => {
     });
 
     describe('pre-initialized list', () => {
-        let populatedList: LinkedList;
+        let populatedList: LinkedList<TestData>;
 
         beforeEach(() => {
             const arr: any[] = [];

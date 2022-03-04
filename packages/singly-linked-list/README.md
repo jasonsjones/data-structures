@@ -24,17 +24,21 @@ _I wholehearedly acknowledge that the basic data structure space is populated wi
 
 ## Basic Usage
 
-Install with npm :
+Install:
 
 ```bash
-npm install singly-linked-list --save
+npm install singly-linked-list
+```
+
+```bash
+yarn add singly-linked-list
 ```
 
 Basic usage example below. _Note: it does not cover all the available methods, rather just highlights the main functionality to get up and running with this data structure. For a description of all the methods, see the API section._
 
 ```javascript
-var LinkedList = require('singly-linked-list');
-var list = new LinkedList();
+import LinkedList from 'singly-linked-list';
+const list = new LinkedList();
 
 list.isEmpty();
 // --> true
@@ -47,8 +51,8 @@ list.insert('data item 4');
 // 'data item 1', ... ,'data item 4'
 
 // alternatively, the list can be initialized with an array
-var initialData = ['data item 1', 'data item 2', 'data item 3', 'data item 4'];
-var populatedList = new LinkedList(initialData);
+const initialData = ['data item 1', 'data item 2', 'data item 3', 'data item 4'];
+const populatedList = new LinkedList(initialData);
 // populatedList contains:
 // 'data item 1', ... ,'data item 4'
 
@@ -83,100 +87,102 @@ list.isEmpty();
 
 **Available methods for a singly-linked-list instance:**
 
--   ### getHeadNode()
+-   `getHeadNode()`
 
     Returns the first node in the list
 
--   ### getTailNode()
+-   `getTailNode()`
 
     Returns the last node in the list
 
--   ### isEmpty()
+-   `isEmpty()`
 
     Determines if the list is empty or not. Returns true if is empty, false otherwise.
 
--   ### getSize()
+-   `getSize()`
 
     Returns the size of the list, or number of nodes
 
--   ### clear()
+-   `clear()`
 
     Clears the list of all nodes/data
 
--   ### insert(data)
+-   `insert(data)`
 
     Inserts a node (with the provided `data`) to the end of the list
 
--   ### insertFirst(data)
+-   `insertFirst(data)`
 
     Inserts a node (with the provided `data`) to the front of the list
 
--   ### insertAt(index, data)
+-   `insertAt(index, data)`
 
     Inserts a node (with the provided `data`) at the `index` indicated.
 
--   ### insertBefore(nodeData, dataToInsert)
+-   `insertBefore(nodeData, dataToInsert)`
 
     Inserts a node (with the `dataToInsert`) _before_ the first node containing `nodeData`
 
--   ### insertAfter(nodeData, dataToInsert)
+-   `insertAfter(nodeData, dataToInsert)`
 
     Inserts a node (with the `dataToInsert`) _after_ the first node containing `nodeData`
 
--   ### remove()
+-   `remove()`
 
     Removes the tail node from the list
 
--   ### removeFirst()
+-   `removeFirst()`
 
     Removes the head node from the list
 
--   ### removeAt(index)
+-   `removeAt(index)`
 
     Removes the node at the `index` provided
 
--   ### removeNode(nodeData)
+-   `removeNode(nodeData)`
 
     Removes the first node that contains the `nodeData` provided
 
--   ### indexOf(nodeData)
+-   `indexOf(nodeData)`
 
     Returns the index of the first node containing the provided `nodeData`. If a node cannot be found containing the provided data, null is returned.
 
--   ### contains(nodeData)
+-   `contains(nodeData)`
 
     Determines whether or not the list contains the provided `nodeData`
 
--   ### find(nodeData)
+-   `find(nodeData)`
 
     Returns the fist node containing the provided `nodeData`. If a node cannot be found containing the provided data, null is returned.
 
--   ### findAt(index)
+-   `findAt(index)`
 
     Returns the node at the location provided by `index`
 
--   ### forEach(fn)
+-   `forEach(fn)`
 
     Utility function to iterate over the list and call the `fn` provided on each node, or element, of the list
 
--   ### toArray()
+-   `toArray()`
 
     Returns an array of all the data contained in the list
 
--   ### printList()
+-   `printList()`
+
     Prints to the console the data property of each node in the list
 
 **Available methods for an individual node instance:**
 
--   ### getData()
+-   `getData()`
 
     Returns the data of the the node
 
--   ### hasNext()
+-   `hasNext()`
 
     Returns whether or not the node has a pointer to the next node
 
--   ### toString()
+-   `toString()`
+
     Returns a string represenation of the node. If the data is an object, it returns the JSON.stringify version of the object. Otherwise, it simply returns the data
 
 ---
