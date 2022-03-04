@@ -19,20 +19,20 @@ import ListNode from './lib/list-node';
  * structure.
  *
  */
-class LinkedList {
-    head: ListNode;
-    tail: ListNode;
+class LinkedList<T> {
+    head: ListNode<T>;
+    tail: ListNode<T>;
     size: number;
-    iterator: ListIterator;
+    iterator: ListIterator<T>;
 
     /**
      * Creates a LinkedList instance.  Each instance has a head node, a tail node
      * and a size, which represents the number of nodes in the list.
      *
      * @constructor
-     * @param {array} arr The data to initialize with the list
+     * @param {T[]} arr The data to initialize with the list
      */
-    constructor(arr?: any[]) {
+    constructor(arr?: T[]) {
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -54,28 +54,28 @@ class LinkedList {
     /**
      * Creates a new Node object with 'data' assigned to the node's data property
      *
-     * @param {object|string|number} data The data to initialize with the node
-     * @returns {object} Node object intialized with 'data'
+     * @param {T} data The data to initialize with the node
+     * @returns {ListNode<T>} Node object intialized with 'data'
      */
-    createNewNode(data: any): ListNode {
+    createNewNode(data: T): ListNode<T> {
         return new ListNode(data);
     }
 
     /**
      * Returns the first node in the list, commonly referred to as the 'head' node
      *
-     * @returns {object} the head node of the list
+     * @returns {ListNode<T>} the head node of the list
      */
-    getHeadNode(): ListNode {
+    getHeadNode(): ListNode<T> {
         return this.head;
     }
 
     /**
      * Returns the last node in the list, commonly referred to as the 'tail' node
      *
-     * @returns {object} the tail node of the list
+     * @returns {ListNode<T>} the tail node of the list
      */
-    getTailNode(): ListNode {
+    getTailNode(): ListNode<T> {
         return this.tail;
     }
 
@@ -110,9 +110,9 @@ class LinkedList {
      * Utility function to iterate over the list and call the fn provided
      * on each node, or element, of the list
      *
-     * @param {object} cb The function to call on each node of the list
+     * @param {function} cb The function to call on each node of the list
      */
-    forEach(cb: (node: ListNode) => void): void {
+    forEach(cb: (node: ListNode<T>) => void): void {
         this.iterator.reset();
         this.iterator.each(cb);
     }
@@ -120,10 +120,10 @@ class LinkedList {
     /**
      * Returns an array of all the data contained in the list
      *
-     * @returns {array} the array of all the data from the list
-     */
-    toArray(): ListNode[] {
-        const listArray: ListNode[] = [];
+     * @returns {T[]} the array of all the data from the list
+ */
+    toArray(): T[] {
+        const listArray: T[] = [];
         this.forEach(node => {
             listArray.push(node.getData());
         });
@@ -143,10 +143,10 @@ class LinkedList {
     /**
      * Inserts a node with the provided data to the end of the list
      *
-     * @param {object|string|number} data The data to initialize with the node
+     * @param {T} data The data to initialize with the node
      * @returns {boolean} true if insert operation was successful
      */
-    insert(data: any): boolean {
+    insert(data: T): boolean {
         const newNode = this.createNewNode(data);
         if (this.isEmpty()) {
             this.head = this.tail = newNode;
@@ -166,10 +166,10 @@ class LinkedList {
     /**
      * Inserts a node with the provided data to the front of the list
      *
-     * @param {object|string|number} data The data to initialize with the node
+     * @param {T} data The data to initialize with the node
      * @returns {boolean} true if insert operation was successful
      */
-    insertFirst(data: any): boolean {
+    insertFirst(data: T): boolean {
         if (this.isEmpty()) {
             this.insert(data);
         } else {
@@ -186,10 +186,10 @@ class LinkedList {
      * Inserts a node with the provided data at the index indicated.
      *
      * @param {number} index The index in the list to insert the new node
-     * @param {object|string|number} data The data to initialize with the node
+     * @param {T} data The data to initialize with the node
      * @returns {boolean} true if insert operation was successful
      */
-    insertAt(index: number, data: any): boolean {
+    insertAt(index: number, data: T): boolean {
         let current = this.getHeadNode(),
             previous = null,
             position = 0;
@@ -228,12 +228,12 @@ class LinkedList {
     /**
      * Inserts a node before the first node containing the provided data
      *
-     * @param {object|string|number} nodeData The data of the node to
+     * @param {T} nodeData The data of the node to
      *         find to insert the new node before
-     * @param {object|string|number} dataToInsert The data to initialize with the node
+     * @param {T} dataToInsert The data to initialize with the node
      * @returns {boolean} true if insert operation was successful
      */
-    insertBefore(nodeData: any, dataToInsert: any): boolean {
+    insertBefore(nodeData: T, dataToInsert: T): boolean {
         const index = this.indexOf(nodeData);
         return this.insertAt(index, dataToInsert);
     }
@@ -241,12 +241,12 @@ class LinkedList {
     /**
      * Inserts a node after the first node containing the provided data
      *
-     * @param {object|string|number} nodeData The data of the node to
+     * @param {T} nodeData The data of the node to
      *         find to insert the new node after
-     * @param {object|string|number} dataToInsert The data to initialize with the node
+     * @param {T} dataToInsert The data to initialize with the node
      * @returns {boolean} true if insert operation was successful
      */
-    insertAfter(nodeData: any, dataToInsert: any): boolean {
+    insertAfter(nodeData: T, dataToInsert: T): boolean {
         const index = this.indexOf(nodeData);
         const size = this.getSize();
 
@@ -267,9 +267,9 @@ class LinkedList {
      * In order to remove the tail node a handle to the node before the
      * tail node is required, which requires a O(n) operation.
      *
-     * @returns the node that was removed
+     * @returns {ListNode<T>} the node that was removed
      */
-    remove(): ListNode {
+    remove(): ListNode<T> {
         if (this.isEmpty()) {
             return null;
         }
@@ -286,7 +286,7 @@ class LinkedList {
 
             // more than one node in the list
         } else {
-            let current;
+            let current: ListNode<T>;
             // iterate over the list until we reach the second to last node,
             // the node whose next pointer points the the tail node
             while (this.iterator.hasNext()) {
@@ -305,9 +305,9 @@ class LinkedList {
     /**
      * Removes the head node from the list
      *
-     * @returns the node that was removed
+     * @returns {ListNode<T>} the node that was removed
      */
-    removeFirst(): ListNode {
+    removeFirst(): ListNode<T> {
         if (this.isEmpty()) {
             return null;
         }
@@ -327,11 +327,11 @@ class LinkedList {
      * Removes the node at the index provided
      *
      * @param {number} index The index of the node to remove
-     * @returns the node that was removed
+     * @returns {ListNode<T>} the node that was removed
      */
-    removeAt(index: number): ListNode {
-        let current: ListNode = this.getHeadNode(),
-            previous: ListNode = null,
+    removeAt(index: number): ListNode<T> {
+        let current: ListNode<T> = this.getHeadNode(),
+            previous: ListNode<T> = null,
             position = 0;
 
         // check for index out-of-bounds
@@ -365,10 +365,10 @@ class LinkedList {
     /**
      * Removes the first node that contains the data provided
      *
-     * @param {object|string|number} data The data of the node to remove
-     * @returns the node that was removed
+     * @param {T} data The data of the node to remove
+     * @returns {ListNode<T>} the node that was removed
      */
-    removeNode(data: any): ListNode {
+    removeNode(data: T): ListNode<T> {
         const index = this.indexOf(data);
         return this.removeAt(index);
     }
@@ -377,12 +377,12 @@ class LinkedList {
      * Returns the index of the first node containing the provided data.  If
      * a node cannot be found containing the provided data, -1 is returned.
      *
-     * @param {object|string|number} data The data of the node to find
-     * @returns the index of the node if found, -1 otherwise
+     * @param {T} data The data of the node to find
+     * @returns {number} the index of the node if found, -1 otherwise
      */
-    indexOf(data: any): number {
+    indexOf(data: T): number {
         this.iterator.reset();
-        let current: ListNode;
+        let current: ListNode<T>;
         let index = 0;
 
         // iterate over the list (keeping track of the index value) until
@@ -402,11 +402,11 @@ class LinkedList {
     /**
      * Determines whether or not the list contains the provided data
      *
-     * @param {object|string|number} data The data to check if the list
+     * @param {T} data The data to check if the list
      *        contains
-     * @returns the true if the list contains data, false otherwise
+     * @returns {boolean} the true if the list contains data, false otherwise
      */
-    contains(data: any): boolean {
+    contains(data: T): boolean {
         return this.indexOf(data) > -1;
     }
 
@@ -414,13 +414,13 @@ class LinkedList {
      * Returns the fist node containing the provided data.  If a node
      * cannot be found containing the provided data, null is returned.
      *
-     * @param {object|string|number} data The data of the node to find
-     * @returns the node if found, null otherwise
+     * @param {T} data The data of the node to find
+     * @returns {ListNode<T> | null} the node if found, null otherwise
      */
-    find(data: any): ListNode {
+    find(data: T): ListNode<T> {
         this.iterator.reset();
 
-        let current: ListNode;
+        let current: ListNode<T>;
         // iterate over the list until we find the node containing the data
         // we are looking for
         while (this.iterator.hasNext()) {
@@ -439,9 +439,9 @@ class LinkedList {
      * Returns the node at the location provided by index
      *
      * @param {number} index The index of the node to return
-     * @returns the node located at the index provided.
+     * @returns {ListNode<T>} the node located at the index provided.
      */
-    findAt(index: number): ListNode {
+    findAt(index: number): ListNode<T> {
         // if idx is out of bounds or fn called on empty list, return -1
         if (this.isEmpty() || index > this.getSize() - 1) {
             return null;

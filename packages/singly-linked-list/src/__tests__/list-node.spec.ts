@@ -1,14 +1,12 @@
 import ListNode from '../lib/list-node';
 
 describe('List Node', () => {
-    [null, undefined, '', 'test data', 42].forEach(data => {
-        it(`exists when instantiated with ${data}`, () => {
-            const node = new ListNode(data);
-            expect(node).toBeTruthy();
-        });
+    it.each([null, undefined, '', 'test data', 42])('exists when instantiated with %s', (data) => {
+        const node = new ListNode(data);
+        expect(node).toBeTruthy();
     });
 
-    [
+    it.each( [
         {
             data: 'test data',
             type: 'string'
@@ -21,13 +19,11 @@ describe('List Node', () => {
             data: null,
             type: 'object'
         }
-    ].forEach(testInput => {
-        it(`returns the correct (${testInput.type}) data for ${testInput.data}`, () => {
-            let node = new ListNode(testInput.data);
+    ])('returns the correct $type data for $data', (input) => {
+            let node = new ListNode(input.data);
             let data = node.getData();
-            expect(typeof data).toEqual(testInput.type);
-            expect(data).toEqual(testInput.data);
-        });
+            expect(typeof data).toEqual(input.type);
+            expect(data).toEqual(input.data);
     });
 
     it('returns the correct (object) data', () => {
@@ -52,7 +48,7 @@ describe('List Node', () => {
         expect(firstNode.hasNext()).toBeFalsy();
     });
 
-    [
+    it.each([
         {
             data: { name: 'test item', number: 1 },
             expected: '{"name":"test item","number":1}'
@@ -65,10 +61,9 @@ describe('List Node', () => {
             data: 42,
             expected: '42'
         }
-    ].forEach(testInput => {
-        it(`returns a proper string representation for ${JSON.stringify(testInput.data)}`, () => {
-            const node = new ListNode(testInput.data);
-            expect(node.toString()).toEqual(testInput.expected);
-        });
+    ])('returns a proper string for json data', (input) => {
+        const node = new ListNode(input.data);
+        expect(node.toString()).toEqual(input.expected);
     });
 });
+
